@@ -3,7 +3,7 @@
 [![NPM version](https://img.shields.io/npm/v/unplugin-glsl)](https://www.npmjs.com/package/unplugin-glsl)
 
 Import, inline (and compress) `GLSL` shader files, compatible with [Vite](https://vitejs.dev/), [Rollup](
-https://rollupjs.org/guide/en/), [Webpack](https://webpack.js.org/), [esbuild](https://esbuild.github.io/) and [rspack](https://www.rspack.dev/) by [unplugin](https://github.com/unjs/unplugin).
+https://rollupjs.org/guide/en/), [Webpack](https://webpack.js.org/), [esbuild](https://esbuild.github.io/) and [Rspack](https://www.rspack.dev/) by [unplugin](https://github.com/unjs/unplugin).
 
 > `@import` will be converted to `#include`.
 
