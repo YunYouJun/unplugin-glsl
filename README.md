@@ -10,6 +10,44 @@ Starter template for [unplugin](https://github.com/unjs/unplugin).
 pnpm add unplugin-glsl
 ```
 
+### With TypeScript
+
+Add extension declarations to your [`types`](https://www.typescriptlang.org/tsconfig#types) in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": [
+      "vite-plugin-glsl/ext"
+    ]
+  }
+}
+```
+
+or as a [package dependency directive](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-types-) to your global types:
+
+```ts
+/// <reference types="vite-plugin-glsl/ext" />
+```
+
+### Default Options
+
+```ts
+glsl({
+  include: [ // Glob pattern, or array of glob patterns to import
+    '**/*.glsl', '**/*.wgsl',
+    '**/*.vert', '**/*.frag',
+    '**/*.vs', '**/*.fs'
+  ],
+  exclude: undefined, // Glob pattern, or array of glob patterns to ignore
+  warnDuplicatedImports: true, // Warn if the same chunk was imported multiple times
+  defaultExtension: 'glsl', // Shader suffix when no extension is specified
+  compress: false, // Compress output shader code
+  watch: true, // Recompile shader on change
+  root: '/' // Directory for root imports
+})
+```
+
 <details>
 <summary>Vite</summary><br>
 
@@ -119,3 +157,7 @@ And uniform performance across different build tools.
 - Install: `pnpm i`
 - Dev: `pnpm run dev`
 - Release: `pnpm run release`
+
+## Ref
+
+- [vite-plugin-glsl](https://github.com/UstymUkhman/vite-plugin-glsl)

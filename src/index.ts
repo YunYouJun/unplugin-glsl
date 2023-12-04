@@ -1,9 +1,13 @@
+import process from 'node:process'
 import type { TransformResult, UnpluginFactory } from 'unplugin'
 import { createUnplugin } from 'unplugin'
 import { createFilter } from '@rollup/pluginutils'
 import MagicString from 'magic-string'
+import type { ModuleNode, ViteDevServer } from 'vite'
 import type { Options } from './types'
+import { loadShader } from './core/loadShader'
 
+export const DEFAULT_EXTENSION = 'glsl'
 export const DEFAULT_SHADERS = Object.freeze([
   '**/*.glsl', '**/*.wgsl',
   '**/*.vert', '**/*.frag',
@@ -11,13 +15,34 @@ export const DEFAULT_SHADERS = Object.freeze([
 ])
 
 export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) => {
+  const {
+    include = DEFAULT_SHADERS,
+    exclude = undefined,
+    warnDuplicatedImports = true,
+    defaultExtension = DEFAULT_EXTENSION,
+    compress = false,
+    watch = true,
+    root = '/',
+  } = options ?? {}
+
   const filter = createFilter(
-    options?.include ?? DEFAULT_SHADERS,
-    options?.exclude ?? [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
+    include ?? defaultExtension,
+    exclude ?? [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]\.nuxt[\\/]/],
   )
+
+  let server: ViteDevServer
+
+  const prod = process.env.NODE_ENV === 'production'
+
   return {
     name: 'unplugin-glsl',
     enforce: 'pre',
+
+    vite: {
+      configureServer(devServer) {
+        server = devServer
+      },
+    },
 
     transformInclude(id) {
       return filter(id)
@@ -28,7 +53,49 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) =
         code: `export default ${JSON.stringify(code)}`,
         map: s.generateMap({ hires: 'boundary' }),
       }
-      return result
+
+      const { dependentChunks, outputShader } = loadShader(code, id, {
+        warnDuplicatedImports,
+        defaultExtension,
+        compress,
+        watch,
+        root,
+      })
+
+      const { moduleGraph } = server ?? {}
+      const module = moduleGraph?.getModuleById(id)
+      const chunks = Array.from(dependentChunks.values()).flat()
+
+      if (watch && module && !prod) {
+        if (!chunks.length) {
+          module.isSelfAccepting = true
+        }
+
+        else {
+          const imported = new Set<string | ModuleNode>()
+
+          chunks.forEach(chunk => imported.add(
+            moduleGraph.createFileOnlyEntry(chunk),
+          ))
+
+          moduleGraph.updateModuleInfo(
+            module, imported, null,
+            new Set(), null, true,
+          )
+        }
+      }
+
+      // return await transformWithEsbuild(outputShader, shader, {
+      //   sourcemap: config.build.sourcemap && 'external',
+      //   loader: 'text',
+      //   format: 'esm',
+      //   minifyWhitespace: prod,
+      // })
+
+      return {
+        code: `export default ${JSON.stringify(outputShader)}`,
+        map: result.map,
+      }
     },
   }
 }
