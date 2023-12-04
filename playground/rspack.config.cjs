@@ -7,6 +7,7 @@ const isDev = process.env.NODE_ENV === 'development'
  * @type {import('@rspack/cli').Configuration}
  */
 module.exports = {
+  mode: isDev ? 'development' : 'production',
   context: __dirname,
   entry: {
     main: './main.ts',

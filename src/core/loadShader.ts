@@ -266,8 +266,10 @@ function loadChunks(source: string, path: string, extension: string, warn: boole
 
       return loadChunks(
         readFileSync(shader, 'utf8'),
-        shader, extension,
-        warn, root,
+        shader,
+        extension,
+        warn,
+        root,
       )
     })
   }
@@ -305,14 +307,18 @@ export function loadShader(source: string, shader: string, options: LoadingOptio
   const {
     warnDuplicatedImports,
     defaultExtension,
-    compress, root,
+    compress,
+    root,
   } = options
 
   resetSavedChunks()
 
   const output = loadChunks(
-    source, shader, defaultExtension,
-    warnDuplicatedImports, root,
+    source,
+    shader,
+    defaultExtension,
+    warnDuplicatedImports,
+    root,
   )
 
   return {

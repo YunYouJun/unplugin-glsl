@@ -71,8 +71,12 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) =
           ))
 
           moduleGraph.updateModuleInfo(
-            module, imported, null,
-            new Set(), null, true,
+            module,
+            imported,
+            null,
+            new Set(),
+            null,
+            true,
           )
         }
       }

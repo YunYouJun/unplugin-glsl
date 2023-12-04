@@ -2,8 +2,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "vite build",
-    "dev": "nodemon -w '../src/**/*.ts' -e .ts -x vite",
+    "dev": "npm run dev:vite",
+    "build": "npm run build:vite",
+    "dev:vite": "nodemon -w '../src/**/*.ts' -e .ts -x vite",
+    "build:vite": "vite build",
     "dev:webpack": "webpack serve --open --mode=development --config webpack.config.cjs",
     "build:webpack": "webpack --mode=production --config webpack.config.cjs",
     "dev:rspack": "NODE_ENV=development rspack serve",

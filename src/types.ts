@@ -36,14 +36,9 @@ export interface LoadingOptions {
 }
 
 /**
- * @since 0.2.0
- * @typedef {Object}
  * @name PluginOptions
  * @extends LoadingOptions
  * @description Plugin config object
- *
- * @property {GlobPattern} Glob pattern(s array) to import
- * @property {GlobPattern} Glob pattern(s array) to ignore
  *
  * @default {
  *   exclude: undefined,
