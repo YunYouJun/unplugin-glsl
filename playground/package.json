@@ -3,10 +3,17 @@
   "private": true,
   "scripts": {
     "build": "vite build",
-    "dev": "nodemon -w '../src/**/*.ts' -e .ts -x vite"
+    "dev": "nodemon -w '../src/**/*.ts' -e .ts -x vite",
+    "dev:webpack": "webpack serve --open --mode=development --config webpack.config.cjs",
+    "build:webpack": "webpack --mode=production --config webpack.config.cjs"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^5.5.3",
+    "unplugin-glsl": "workspace:*",
     "vite": "^4.4.9",
-    "vite-plugin-inspect": "^0.7.38"
+    "vite-plugin-inspect": "^0.7.38",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }

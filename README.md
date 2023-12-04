@@ -87,10 +87,12 @@ export default {
 
 ```ts
 // webpack.config.js
+const glsl = require('unplugin-glsl/webpack').default
+
 module.exports = {
   /* ... */
   plugins: [
-    require('unplugin-glsl/webpack')({ /* options */ })
+    glsl({ /* options */ })
   ]
 }
 ```
@@ -110,22 +112,6 @@ export default defineNuxtConfig({
 ```
 
 > This module works for both Nuxt 2 and [Nuxt Vite](https://github.com/nuxt/vite)
-
-<br></details>
-
-<details>
-<summary>Vue CLI</summary><br>
-
-```ts
-// vue.config.js
-module.exports = {
-  configureWebpack: {
-    plugins: [
-      require('unplugin-glsl/webpack')({ /* options */ }),
-    ],
-  },
-}
-```
 
 <br></details>
 
@@ -160,7 +146,7 @@ And uniform performance across different build tools.
 
 ## Todo
 
-- [ ] Test Webpack/Rollup/Nuxt/Vue CLI/esbuild
+- [ ] Test Webpack/Rollup/Nuxt/esbuild/RSpack
 
 ## Ref
 

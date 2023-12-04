@@ -8,8 +8,6 @@ import chunk3 from './glsl/chunk3.frag?raw'
 
 import importedGlsl from './glsl/import/imported.glsl?raw'
 
-import './index.css'
-
 // eslint-disable-next-line no-console
 console.info(`Shader Length: ${shader.length} characters.`)
 const app = document.getElementById('app')
@@ -24,10 +22,7 @@ app.appendChild(resultTag)
 // app.innerHTML = '__UNPLUGIN__'
 
 function createRawChunkTags() {
-  const rawChunks: {
-    title: string
-    content: string
-  }[] = [
+  const rawChunks = [
     {
       title: 'glsl/main.frag',
       content: rawShader,
