@@ -74,6 +74,7 @@
   ],
   "scripts": {
     "build": "tsup",
+    "build:play": "npm -C playground run build",
     "dev": "tsup --watch src",
     "build:fix": "esno scripts/postbuild.ts",
     "lint": "eslint .",
@@ -125,6 +126,7 @@
     "esno": "^0.17.0",
     "fast-glob": "^3.3.1",
     "nodemon": "^3.0.1",
+    "picocolors": "^1.0.0",
     "rimraf": "^5.0.1",
     "rollup": "^3.28.1",
     "tsup": "^7.2.0",

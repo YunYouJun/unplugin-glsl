@@ -1,7 +1,10 @@
 import { dirname, extname, posix, resolve, sep } from 'node:path'
 import { cwd, emitWarning } from 'node:process'
 import { readFileSync } from 'node:fs'
+import pc from 'picocolors'
 import type { LoadingOptions, LoadingOutput } from '../types'
+
+import {} from 'chalk'
 
 /**
  * @description Shader chunk path
@@ -227,7 +230,9 @@ function loadChunks(source: string, path: string, extension: string, warn: boole
   // @import to include
   const m = source.match(importRegex)
   if (m) {
-    console.warn(`\n${m[0]} ==> ${m[0].replace(importRegex, '#include "$1";')}`)
+    const importCode = m[0]
+    const targetCode = m[0].replace(importRegex, '#include "$1";')
+    console.warn(`\n${pc.yellow(importCode)} ${pc.green('=>')} ${pc.cyan(targetCode)}`)
     source = source.replace(importRegex, '#include "$1";')
   }
 
