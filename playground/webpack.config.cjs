@@ -18,7 +18,6 @@ module.exports = {
     }),
 
     // require('unplugin-glsl/webpack')({ /* options */ }),
-    // require('unplugin-glsl/webpack')({ /* options */ }),
     glsl({ /* options */ }),
   ],
   module: {

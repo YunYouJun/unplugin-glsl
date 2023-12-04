@@ -5,14 +5,18 @@
     "build": "vite build",
     "dev": "nodemon -w '../src/**/*.ts' -e .ts -x vite",
     "dev:webpack": "webpack serve --open --mode=development --config webpack.config.cjs",
-    "build:webpack": "webpack --mode=production --config webpack.config.cjs"
+    "build:webpack": "webpack --mode=production --config webpack.config.cjs",
+    "dev:rspack": "NODE_ENV=development rspack serve",
+    "build:rspack": "NODE_ENV=production rspack build"
   },
   "devDependencies": {
+    "@rspack/cli": "^0.4.1",
+    "@rspack/core": "^0.4.1",
     "html-webpack-plugin": "^5.5.3",
     "unplugin-glsl": "workspace:*",
-    "vite": "^4.4.9",
-    "vite-plugin-inspect": "^0.7.38",
-    "webpack": "^5.88.2",
+    "vite": "^5.0.5",
+    "vite-plugin-inspect": "^0.8.1",
+    "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   }
