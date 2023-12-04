@@ -1,9 +1,9 @@
 {
   "name": "unplugin-glsl",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "packageManager": "pnpm@8.11.0",
-  "description": "",
+  "description": "Import, inline (and compress) GLSL shader files by unified plugin system.",
   "license": "MIT",
   "homepage": "https://github.com/YunYouJun/unplugin-glsl#readme",
   "repository": {
@@ -14,10 +14,13 @@
     "url": "https://github.com/YunYouJun/unplugin-glsl/issues"
   },
   "keywords": [
+    "glsl",
+    "shader",
     "unplugin",
     "vite",
     "webpack",
     "rollup",
+    "rspack",
     "transform"
   ],
   "exports": {
