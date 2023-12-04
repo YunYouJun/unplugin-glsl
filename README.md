@@ -171,3 +171,5 @@ And uniform performance across different build tools.
 ## Ref
 
 - [vite-plugin-glsl](https://github.com/UstymUkhman/vite-plugin-glsl)
+- [webpack-glsl-loader](https://www.npmjs.com/package/webpack-glsl-loader)
+- [glslify](https://github.com/glslify/glslify)
