@@ -106,6 +106,14 @@ build({
 
 <br></details>
 
+## Why unplugin-glsl?
+
+We need `@import` in [webpack-glsl-loader](https://www.npmjs.com/package/webpack-glsl-loader#imports), which is not supported in [vite-plugin-glsl](https://github.com/UstymUkhman/vite-plugin-glsl).
+
+And uniform performance across different build tools.
+
+- See [Closed | feat: Added support for @import](https://github.com/UstymUkhman/vite-plugin-glsl/pull/45)
+
 ## Dev
 
 - Install: `pnpm i`
