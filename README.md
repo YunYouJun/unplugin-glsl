@@ -1,6 +1,6 @@
 # unplugin-glsl
 
-[![NPM version](https://img.shields.io/npm/v/unplugin-glsl?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-glsl)
+[![NPM version](https://img.shields.io/npm/v/unplugin-glsl)](https://www.npmjs.com/package/unplugin-glsl)
 
 Starter template for [unplugin](https://github.com/unjs/unplugin).
 

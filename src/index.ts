@@ -1,5 +1,5 @@
 import { createUnplugin } from 'unplugin'
-import { unpluginFactory } from './core'
+import { unpluginFactory } from './core/unplugin'
 
 export * from './types'
 export * from './core'

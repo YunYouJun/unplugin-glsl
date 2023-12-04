@@ -34,9 +34,6 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) =
     enforce: 'pre',
 
     transformInclude(id) {
-      if (id.endsWith('?raw'))
-        id = id.slice(0, -4)
-
       return filter(id)
     },
     transform(code, id) {
