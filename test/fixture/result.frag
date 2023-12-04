@@ -21,3 +21,6 @@ out highp vec4 fragColor;
 void main (void) {
   fragColor = chunkFn();
 }
+
+void importedTest (void) {}
+
