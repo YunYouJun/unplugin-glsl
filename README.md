@@ -147,10 +147,6 @@ And uniform performance across different build tools.
 - Dev: `pnpm run dev`
 - Release: `pnpm run release`
 
-## Todo
-
-- [ ] Test Webpack/Rollup/Nuxt/esbuild/RSpack
-
 ## Ref
 
 - [vite-plugin-glsl](https://github.com/UstymUkhman/vite-plugin-glsl)
