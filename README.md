@@ -2,7 +2,27 @@
 
 [![NPM version](https://img.shields.io/npm/v/unplugin-glsl)](https://www.npmjs.com/package/unplugin-glsl)
 
-Starter template for [unplugin](https://github.com/unjs/unplugin).
+Import, inline (and compress) GLSL shader files, compatible with Vite, Rollup, Webpack, Nuxt, and esbuild by [unplugin](https://github.com/unjs/unplugin).
+
+> `@import` will be converted to `#include`.
+
+## Example
+
+[Demo](https://unplugin-glsl.pages.dev/)
+
+```glsl
+precision highp float;
+
+#include /glsl/chunk0.frag;
+
+out highp vec4 fragColor;
+
+void main (void) {
+  fragColor = chunkFn();
+}
+
+@import ./import/imported.glsl;
+```
 
 ## Usage
 
