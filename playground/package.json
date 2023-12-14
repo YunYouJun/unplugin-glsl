@@ -5,6 +5,7 @@
     "dev": "npm run dev:vite",
     "build": "npm run build:vite",
     "dev:vite": "nodemon -w '../src/**/*.ts' -e .ts -x vite",
+    "build:rollup": "rollup -c",
     "build:vite": "vite build",
     "dev:webpack": "webpack serve --open --mode=development --config webpack.config.cjs",
     "build:webpack": "webpack --mode=production --config webpack.config.cjs",
@@ -12,9 +13,14 @@
     "build:rspack": "NODE_ENV=production rspack build"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@rollup/plugin-url": "^8.0.2",
     "@rspack/cli": "^0.4.3",
     "@rspack/core": "^0.4.3",
     "html-webpack-plugin": "^5.5.4",
+    "typescript": "^5.3.3",
     "unplugin-glsl": "workspace:*",
     "vite": "^5.0.8",
     "vite-plugin-inspect": "^0.8.1",
