@@ -13,9 +13,9 @@ export default defineConfig({
     js: `
 // adapt for commonjs
 if (typeof require === 'undefined' && typeof __filename === 'undefined' && typeof __dirname === 'undefined') {
-  const require = (await import("node:module")).createRequire(import.meta.url);
-  const __filename = (await import("node:url")).fileURLToPath(import.meta.url);
-  const __dirname = (await import("node:path")).dirname(__filename);
+  var require = (await import("node:module")).createRequire(import.meta.url);
+  var __filename = (await import("node:url")).fileURLToPath(import.meta.url);
+  var __dirname = (await import("node:path")).dirname(__filename);
 }
     `,
   },
