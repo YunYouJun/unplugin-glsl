@@ -1,7 +1,7 @@
 {
   "name": "unplugin-glsl",
   "type": "module",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "packageManager": "pnpm@8.12.1",
   "description": "Import, inline (and compress) GLSL shader files by unified plugin system.",
   "license": "MIT",
